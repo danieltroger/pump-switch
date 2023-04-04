@@ -11,17 +11,17 @@ export function pump_toggling(gpio: Awaited<ReturnType<typeof init_gpio>>) {
 
   createEffect(
     run_catch_log(async () => {
-      const switch_state = gpio.inputs.pump_switch();
+      const new_state = gpio.inputs.pump_switch() === 1 ? 0 : 1; // Inverted here so that if the cable breaks the pump is off
       const [result] = (await socket?.ensure_sent({
         id: utilishared.random_string(),
         command: "write-gpio",
         value: {
           output: "garden_pump",
-          new_state: !switch_state, // Inverted here so that if the cable breaks the pump is off
+          new_state: new_state,
         },
       })) as any;
 
-      console.log("set gpio result", result, "(we set it to", switch_state, ")");
+      console.log("set gpio result", result, "(we set it to", new_state, ")");
     })
   );
 }
