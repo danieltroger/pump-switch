@@ -136,7 +136,7 @@ const $b6f2ed96127d12a5$export$78e3044358792147 = (0, $72vZL$promisify)((0, $72v
 
 async function $a6166442b4560594$export$90ed46c0f5657f4f([get_config, set_config]) {
     const inputs = {
-        pump_switch: 2
+        pump_switch: 22
     };
     const outputs = {}; // replace the as stuff if you want to use the outputs
     const owner = (0, $72vZL$getOwner)();

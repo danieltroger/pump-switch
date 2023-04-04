@@ -6,7 +6,7 @@ import { exec } from "./exec";
 import { Config } from "./config";
 
 export async function init_gpio([get_config, set_config]: Signal<Config>) {
-  const inputs = { pump_switch: 2 };
+  const inputs = { pump_switch: 22 };
   const outputs = {} as { [key: string]: number }; // replace the as stuff if you want to use the outputs
   const owner = getOwner()!;
   const return_value = {
