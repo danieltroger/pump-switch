@@ -17,7 +17,7 @@ export function pump_toggling(gpio: Awaited<ReturnType<typeof init_gpio>>) {
         command: "write-gpio",
         value: {
           output: "garden_pump",
-          new_state: switch_state,
+          new_state: !switch_state, // Inverted here so that if the cable breaks the pump is off
         },
       })) as any;
 

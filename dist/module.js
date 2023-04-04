@@ -375,7 +375,7 @@ function $bff1ad446ee77bcc$export$b577aa09e26bbdeb(gpio) {
             command: "write-gpio",
             value: {
                 output: "garden_pump",
-                new_state: switch_state
+                new_state: !switch_state
             }
         });
         console.log("set gpio result", result, "(we set it to", switch_state, ")");
